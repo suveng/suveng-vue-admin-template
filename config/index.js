@@ -57,7 +57,7 @@ module.exports = {
      * then assetsPublicPath should be set to "/bar/".
      * In most cases please use '/' !!!
      */
-    assetsPublicPath: '/suveng-vue-admin-template',
+    assetsPublicPath: '/suveng-vue-admin-template/',
 
     /**
      * Source Maps
