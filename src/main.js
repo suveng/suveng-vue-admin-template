@@ -16,6 +16,7 @@ import '@/icons' // icon
 import '@/permission' // permission control
 
 /**
+ * todo://idea 安装 eslint 插件，并启用eslint自动修复，可以设置快捷键，和代码格式化不一样
  * This project originally used easy-mock to simulate data,
  * but its official service is very unstable,
  * and you can build your own service if you need it.
