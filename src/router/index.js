@@ -38,6 +38,21 @@ export const constantRouterMap = [
   },
   // todo://侧边栏在这里加
   {
+    path: '/me',
+    component: Layout,
+    redirect: '/me/index',
+    name: 'User',
+    meta: { title: '关于我', icon: 'user' },
+    children: [
+      {
+        path: 'index',
+        name: 'Index',
+        component: () => import('@/views/home/home'),
+        meta: { title: '关于我', icon: 'user' }
+      }
+    ]
+  },
+  {
     path: '/user',
     component: Layout,
     redirect: '/user/index',
