@@ -4,7 +4,13 @@
  * since 2019/3/19
  * description:
  **/
-import axios from 'src/utils/http.js'
+
+import request from '../utils/request'
+
 export function getUserList() {
-  return axios.get('/springboot/user/getList')
+  console.log(request({
+    url: '/springboot/user/getList',
+    method: 'post'
+  }))
+  return null
 }

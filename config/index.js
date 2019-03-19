@@ -11,13 +11,6 @@ module.exports = {
     assetsPublicPath: '/',
     //开发调试的时候做的跨域配置
     proxyTable: {
-          '/v1': {
-            target: 'http://192.168.174.112:8080',
-            changeOrigin: true,
-            pathRewrite: {
-              '^/v1': ''
-            }
-          }
     },
 
     // Various Dev Server settings

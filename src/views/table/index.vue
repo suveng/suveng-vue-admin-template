@@ -79,9 +79,8 @@ export default {
         this.list = response.data.items
         this.listLoading = false
       })
-      getUserList().then(response => {
-        console.log(response)
-      })
+      getUserList()
+      console.log('1')
     }
   }
 }
