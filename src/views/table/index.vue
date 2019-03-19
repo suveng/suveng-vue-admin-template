@@ -39,11 +39,17 @@
         </template>
       </el-table-column>
     </el-table>
+
+    <el-pagination
+      :total="1000"
+      background
+      layout="prev, pager, next"/>
   </div>
 </template>
 
 <script>
 import { getList } from '@/api/table'
+import { getUserList } from '@/api/user'
 
 export default {
   filters: {
@@ -59,7 +65,8 @@ export default {
   data() {
     return {
       list: null,
-      listLoading: true
+      listLoading: true,
+      data: null
     }
   },
   created() {
@@ -71,6 +78,9 @@ export default {
       getList(this.listQuery).then(response => {
         this.list = response.data.items
         this.listLoading = false
+      })
+      getUserList().then(response => {
+        console.log(response)
       })
     }
   }
