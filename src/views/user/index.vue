@@ -48,7 +48,7 @@ export default {
   name: 'User',
   data() {
     return {
-      currentPage: 0, // 初始页
+      currentPage: 1, // 初始页
       pageSize: 10, // 每页的数据
       total: 0,
       list: null,
@@ -63,7 +63,7 @@ export default {
   methods: {
     fetchData() {
       this.listLoading = true
-      getUserList(this.listQuery, this.currentPage, this.pageSize).then(response => {
+      getUserList(this.listQuery, this.currentPage - 1, this.pageSize).then(response => {
         // 设置数据 jpa
         this.data = response.data
         this.list = response.data.content
@@ -83,7 +83,7 @@ export default {
     },
     handleCurrentChange: function(currentPage) {
       // 点击第几页
-      this.currentPage = currentPage - 1
+      this.currentPage = currentPage
       console.log(currentPage)
       this.fetchData()
     }
