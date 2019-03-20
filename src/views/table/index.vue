@@ -71,6 +71,9 @@ export default {
   },
   created() {
     this.fetchData()
+    getUserList().then(response => {
+      console.log(response)
+    })
   },
   methods: {
     fetchData() {
@@ -79,8 +82,6 @@ export default {
         this.list = response.data.items
         this.listLoading = false
       })
-      getUserList()
-      console.log('1')
     }
   }
 }
