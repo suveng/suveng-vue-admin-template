@@ -6,8 +6,9 @@
       element-loading-text="Loading"
       border
       fit
-      highlight-current-row>
-      <el-table-column align="center" label="ID">
+      highlight-current-row
+      @sort-change="sortChange">
+      <el-table-column sortable="custom" prop="id" align="center" label="ID">
         <template slot-scope="scope">
           {{ scope.row.id }}
         </template>
@@ -87,6 +88,9 @@ export default {
       this.currentPage = currentPage
       console.log(currentPage)
       this.fetchData()
+    },
+    sortChange: function(column, prop, order) {
+      console.log(column + '-' + column.prop + '-' + column.order)
     }
   }
 }
