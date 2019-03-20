@@ -48,7 +48,7 @@ export default {
   name: 'User',
   data() {
     return {
-      currentPage: 1, // 初始页
+      currentPage: 0, // 初始页
       pageSize: 10, // 每页的数据
       total: 0,
       list: null,
@@ -83,7 +83,7 @@ export default {
     },
     handleCurrentChange: function(currentPage) {
       // 点击第几页
-      this.currentPage = currentPage
+      this.currentPage = currentPage - 1
       console.log(currentPage)
       this.fetchData()
     }
