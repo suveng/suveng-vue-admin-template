@@ -9,7 +9,7 @@ import request from '@/utils/request'
 import { params } from '@/utils/params'
 
 export function getUserList(listQuery, currentPage, pageSize) {
-  const data = { 'pageNum': currentPage, 'pageSize': pageSize, 'username': 'sdf' }
+  const data = { 'pageNum': currentPage, 'pageSize': pageSize }
 
   return request({
     url: '/springboot/user/getList',

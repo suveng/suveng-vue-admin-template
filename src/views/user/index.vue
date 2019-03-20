@@ -33,6 +33,7 @@
       :total="total"
       :current-page="currentPage"
       :page-sizes="[5, 10, 20, 40]"
+      class=" el-pagination__rightwrapper"
       background
       layout="total, sizes, prev, pager, next, jumper"
       @size-change="handleSizeChange"
