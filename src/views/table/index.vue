@@ -49,7 +49,6 @@
 
 <script>
 import { getList } from '@/api/table'
-import { getUserList } from '@/api/user'
 
 export default {
   filters: {
@@ -79,8 +78,6 @@ export default {
         this.list = response.data.items
         this.listLoading = false
       })
-      getUserList()
-      console.log('1')
     }
   }
 }

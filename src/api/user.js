@@ -5,12 +5,16 @@
  * description:
  **/
 
-import request from '../utils/request'
+import request from '@/utils/request'
+import { params } from '@/utils/params'
 
-export function getUserList() {
-  console.log(request({
+export function getUserList(listQuery, currentPage, pageSize) {
+  const data = { 'pageNum': currentPage, 'pageSize': pageSize }
+
+  return request({
     url: '/springboot/user/getList',
-    method: 'post'
-  }))
-  return null
+    method: 'post',
+    contentType: 'application/json',
+    data: params(data)
+  })
 }
