@@ -49,7 +49,6 @@
 
 <script>
 import { getList } from '@/api/table'
-import { getUserList } from '@/api/user'
 
 export default {
   filters: {
@@ -71,9 +70,6 @@ export default {
   },
   created() {
     this.fetchData()
-    getUserList().then(response => {
-      console.log(response)
-    })
   },
   methods: {
     fetchData() {
