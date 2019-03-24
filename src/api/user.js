@@ -18,3 +18,11 @@ export function getUserList(listQuery, currentPage, pageSize) {
     data: params(data)
   })
 }
+export function addUserTestData() {
+  return request({
+    url: '/springboot/user/addTestData',
+    method: 'post',
+    contentType: 'application/json',
+    data: {}
+  })
+}
