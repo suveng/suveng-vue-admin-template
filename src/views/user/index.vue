@@ -2,7 +2,7 @@
   <div class="user">
     <el-row>
       <el-button class="el-button--primary" @click="addTestData">增加测试数据</el-button>
-      <el-button class="el-button--primary" @click="addTestData">增加测试数据</el-button>
+      <el-button class="el-button--primary" >添加</el-button>
     </el-row>
     <el-row>
       <el-table
@@ -111,6 +111,5 @@ export default {
   .el-row{
     margin: 10px 10px;
   }
-  .el-table tbody tr:hover>td { background-color: #000 }
 
 </style>
