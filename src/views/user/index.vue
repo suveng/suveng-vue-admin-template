@@ -23,11 +23,6 @@
           <span>{{ scope.row.password }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="Nickname" align="center">
-        <template slot-scope="scope">
-          {{ scope.row.nickname }}
-        </template>
-      </el-table-column>
     </el-table>
 
     <el-pagination
