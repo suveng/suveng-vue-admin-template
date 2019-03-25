@@ -18,3 +18,29 @@ export function getUserList(listQuery, currentPage, pageSize) {
     data: params(data)
   })
 }
+export function addUserTestData() {
+  return request({
+    url: '/springboot/user/addTestData',
+    method: 'post',
+    contentType: 'application/json',
+    data: {}
+  })
+}
+
+export function removeAll() {
+  return request({
+    url: '/springboot/user/removeAll',
+    method: 'post',
+    contentType: 'application/json',
+    data: {}
+  })
+}
+
+export function addOne(user) {
+  return request({
+    url: '/springboot/user/add',
+    method: 'post',
+    contentType: 'application/json',
+    data: user
+  })
+}
