@@ -1,9 +1,12 @@
 <template>
   <div class="user">
+
     <el-row>
       <el-button class="el-button--primary" @click="addTestData">增加测试数据</el-button>
-      <el-button class="el-button--primary" >添加</el-button>
+      <el-button class="el-button--success" @click="goAdd">添加</el-button>
+      <el-button class="el-button--danger" @click="remove">清除</el-button>
     </el-row>
+
     <el-row>
       <el-table
         v-loading="listLoading"
@@ -11,7 +14,7 @@
         element-loading-text="Loading"
         border
         fit
-        highlight-current-row="true"
+        highlight-current-row
         @sort-change="sortChange">
         <el-table-column sortable="custom" prop="id" align="center" label="ID">
           <template slot-scope="scope">
@@ -31,15 +34,17 @@
       </el-table>
     </el-row>
 
-    <el-pagination
-      :total="total"
-      :current-page="currentPage"
-      :page-sizes="[5, 10, 20, 40]"
-      class=" el-pagination__rightwrapper"
-      background
-      layout="total, sizes, prev, pager, next, jumper"
-      @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"/>
+    <el-row>
+      <el-pagination
+        :total="total"
+        :current-page="currentPage"
+        :page-sizes="[5, 10, 20, 40]"
+        background
+        layout="total, sizes, prev, pager, next, jumper"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"/>
+
+    </el-row>
   </div>
 
 </template>
@@ -47,7 +52,9 @@
 <script>
 import { getUserList } from '@/api/user'
 import { addUserTestData } from '@/api/user'
-import * as Message from 'element-ui'
+import { removeAll } from '@/api/user'
+import { MessageBox } from 'element-ui'
+
 export default {
   name: 'User',
   data() {
@@ -78,13 +85,29 @@ export default {
         this.listLoading = false
       })
     },
+    goAdd() {
+      console.log('跳转添加页面')
+      self.location.href = '#/user/add'
+    },
     addTestData() {
+      // 设置loading
+      this.listLoading = true
       console.log('addTestData')
       addUserTestData().then(response => {
         console.log(response)
-        Message.success('添加成功')
+        MessageBox.alert('添加测试成功')
+        this.fetchData()
       }).catch(err => {
         console.log(err)
+      })
+    },
+    remove() {
+      console.log('清除所有数据')
+      this.listLoading = true
+      removeAll().then(response => {
+        console.log(response)
+        MessageBox.alert('清除数据成功，请重新添加测试数据')
+        this.fetchData()
       })
     },
     // 初始页currentPage、初始每页数据数pagesize和数据data

@@ -26,3 +26,21 @@ export function addUserTestData() {
     data: {}
   })
 }
+
+export function removeAll() {
+  return request({
+    url: '/springboot/user/removeAll',
+    method: 'post',
+    contentType: 'application/json',
+    data: {}
+  })
+}
+
+export function addOne(user) {
+  return request({
+    url: '/springboot/user/add',
+    method: 'post',
+    contentType: 'application/json',
+    data: user
+  })
+}
